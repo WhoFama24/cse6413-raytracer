@@ -1,0 +1,6 @@
+*.pptx
+/.idea
+/__pycache__
+/img
+/report
+/venv
