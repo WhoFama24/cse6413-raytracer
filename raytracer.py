@@ -11,9 +11,30 @@ from math import inf, cos, sin
 random.seed(2019)
 
 AA_LEVEL = 16
-IMAGE_SIZE = [240, 420]
+IMAGE_SIZE = [2160, 3840]
 view_volume = Volume()
 camera_origin = Point([0, 0, 0])
+
+def printProgressBar (iteration, total, prefix = '', suffix = '', decimals = 1, length = 100, fill = '█', printEnd = "\r"):
+    """
+    Call in a loop to create terminal progress bar
+    @params:
+        iteration   - Required  : current iteration (Int)
+        total       - Required  : total iterations (Int)
+        prefix      - Optional  : prefix string (Str)
+        suffix      - Optional  : suffix string (Str)
+        decimals    - Optional  : positive number of decimals in percent complete (Int)
+        length      - Optional  : character length of bar (Int)
+        fill        - Optional  : bar fill character (Str)
+        printEnd    - Optional  : end character (e.g. "\r", "\r\n") (Str)
+    """
+    percent = ("{0:." + str(decimals) + "f}").format(100 * (iteration / float(total)))
+    filledLength = int(length * iteration // total)
+    bar = fill * filledLength + '-' * (length - filledLength)
+    print('\r%s |%s| %s%% %s' % (prefix, bar, percent, suffix), end = printEnd)
+    # Print New Line on Complete
+    if iteration == total:
+        print()
 
 # Load appropriate model
 # with open('mini_geometry.json', 'r') as json_file:
@@ -77,6 +98,7 @@ rgb_size = np.copy(IMAGE_SIZE)
 rgb_size = np.append(rgb_size, 3)
 float64_img = np.zeros(rgb_size).astype(np.float64)
 
+printProgressBar(0, IMAGE_SIZE[0]*IMAGE_SIZE[1], prefix='Progress', suffix='Complete', length=100)
 for i in range(0, IMAGE_SIZE[0]):
     for j in range(0, IMAGE_SIZE[1]):
         pixel_colors = []
@@ -93,6 +115,7 @@ for i in range(0, IMAGE_SIZE[0]):
 
         pixel_colors = np.array(pixel_colors)
         float64_img[i, j, :] = np.average(pixel_colors, axis=0)
+        printProgressBar(i*j, IMAGE_SIZE[0]*IMAGE_SIZE[1], prefix='Progress', suffix='Complete', length=100)
 
 uint8_img = 255 * np.clip(float64_img, 0, 1)
 uint8_img = uint8_img.astype(np.uint8)
