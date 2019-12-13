@@ -2,7 +2,7 @@ from geometry import *
 from math import cos, sin
 
 
-def generate_boxes(scene):
+def generate_box_scene(scene):
     # Cornell Box
     cube_face = Mesh(name="Bottom")
     cube_face.append(Triangle(Point(pos=[-1, -0.5, 0], normals=[-1, 1, 0], rgba=[0.94, 0.94, 0.94, 1],

@@ -5,6 +5,9 @@ from math import inf
 
 
 class Scene:
+    """
+    Object to hold the geometry and lights of a 3-D scene and trace rays to find the minimal point of intersection.
+    """
     acne_offset = 0.00000001
 
     def __init__(self):
@@ -21,7 +24,17 @@ class Scene:
             raise TypeError("Expected Light component")
         self.__lights.append(light)
 
-    def trace(self, ray) -> tuple:
+    def trace(self, ray: Ray) -> tuple:
+        """
+        Traces a given ray through the scene to find the minimal point of intersection.
+
+        :param ray:
+            (Ray) The ray propagating through the scene
+
+        :return:
+            (tuple) A set containing the offset 't' found for minimal intersection and the intersection point
+                    with interpolated values.
+        """
         if not isinstance(ray, Ray):
             raise TypeError("Trace only works with class Ray")
 
