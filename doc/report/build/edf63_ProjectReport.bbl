@@ -1,0 +1,21 @@
+\begin{thebibliography}{1}
+
+\bibitem{caulfield2019}
+B.~Caulfield, ``What's the difference between ray tracing and rasterization?,''
+  Mar 2018.
+
+\bibitem{stevemarschner2015}
+S.~Marschner, {\em Fundamentals of Computer Graphics}.
+\newblock A K Peters/CRC Press, dec 2015.
+
+\bibitem{educba2019}
+``Ray tracing algorithm: Different types and uses of ray tracing algorithm,''
+  Dec 2019.
+
+\bibitem{kraus2011}
+M.~Kraus, ``Blinn vectors,'' Jun 2011.
+
+\bibitem{chaosShading}
+``Basic ray tracing.''
+
+\end{thebibliography}

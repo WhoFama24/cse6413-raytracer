@@ -1,0 +1,8 @@
+{
+  "Front": {"color": [0, 1, 1]},
+  "Bottom": {"color": [1, 0, 1]},
+  "Left": {"color": [0, 0, 1]},
+  "Top": {"color": [1, 1, 0]},
+  "Back": {"color": [0, 1, 0]},
+  "Right": {"color": [1, 0, 0]}
+}
